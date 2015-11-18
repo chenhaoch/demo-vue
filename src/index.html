@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <link rel="stylesheet" href="./styles/main.css" charset="utf-8">
+  <script type="text/javascript" src="./lib/vue.js"></script>
+  <script type="text/javascript" src="./lib/vue-resource.js"></script>
+</head>
+<body>
+  <fieldset id="appModel">
+    <legend>双向绑定</legend>
+    <p>message: {{message}}</p>
+    <input type="text" v-model="message">
+  </fieldset>
+  <fieldset id="appModelFun">
+    <legend>绑定方法</legend>
+    <p>{{a}} * 2 = {{b}}</p>
+    <input type="text" v-model="a">
+  </fieldset>
+  <fieldset id="appList">
+    <legend>渲染列表</legend>
+    <ul>
+      <li v-for="todo in todos">{{todo.text}}</li>
+    </ul>
+  </fieldset>
+  <fieldset id="appEvent">
+    <legend>用户操作</legend>
+    <p>{{message}}</p>
+    <button v-on:click="reverseMessage">reverse message</button>
+  </fieldset>
+  <fieldset id="appAll">
+    <legend>综合</legend>
+    <input v-model="newTodo" v-on:keyup.enter="addTodo">
+    <ul>
+      <li v-for="todo in todos">
+        <span>{{ todo.text }}</span>
+        <button v-on:click="removeTodo($index)">X</button>
+      </li>
+    </ul>
+  </fieldset>
+  <script type="text/javascript" src="./scripts/main.js"></script>
+</body>
+</html>
